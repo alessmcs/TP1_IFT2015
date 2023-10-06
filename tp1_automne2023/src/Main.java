@@ -4,7 +4,7 @@
 // TODO: arbre pour la liste de mots pour eviter de refaire la recherche
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Command.readFile("TP1Input");
     }
 
 
