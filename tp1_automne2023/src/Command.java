@@ -10,8 +10,8 @@ import java.util.Iterator;
 public class Command {
 
     public static void readFile( String fileName){
-        // 2 premieres lignes indiquent m x n -> faire des tableaux
 
+        // 2 premieres lignes indiquent m x n -> faire des tableaux
         Arbre tree = new Arbre();
 
         try {
@@ -22,6 +22,13 @@ public class Command {
 
             int colonne = Integer.parseInt(dimension[0]);
             int ligne = Integer.parseInt(dimension[1]);
+
+            // stop after a certain
+           for (int i = 0 ; i < colonne + 2; i++) {
+                System.out.println(line);
+                // read next line
+                line = br.readLine();
+            }
 
             Grille grille = new Grille(colonne,ligne);
 
