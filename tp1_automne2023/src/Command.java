@@ -5,11 +5,15 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 
 public class Command {
 
-    public static void readFile( String fileName){
+    public static Grille readFile( String fileName){
+
+        Grille grille = new Grille();
+
         try {
             FileReader fileReader = new FileReader(fileName);
             BufferedReader br = new BufferedReader(fileReader);
@@ -29,7 +33,9 @@ public class Command {
            }
 
             // Créer un nouvel objet grille contenant les dimensions et la grille
-            Grille grille = new Grille(colonne,ligne, lignesGrille);
+            grille.setColonne(colonne);
+           grille.setLigne(ligne);
+           grille.setGrille(lignesGrille);
 
             // enfin, la dernière ligne indique la liste de mots à chercher dans la grille
             line = br.readLine();
@@ -37,6 +43,7 @@ public class Command {
             String[] listeMots = line.split(" ");
             // créer un nouvel objet Arbre à partir de la liste de mots
             Arbre arbre = new Arbre(listeMots);
+
 
             br.close();
 
@@ -48,9 +55,44 @@ public class Command {
             out.println("Absolute path:" + file.getAbsolutePath());
         }
 
+        return grille;
+
     }
 
 
+    public static char[][]listLettre(Grille grille) {
+        char[][] listChar = new char[grille.getLigne()][grille.getColonne()];
+        for (int i = 0; i < grille.getLigne(); i++) {
+            for (int j = 0; j < grille.getColonne(); j++) {
+
+                listChar[i][j] = grille.getGrille()[i][j].charAt(0);
+            }
+        }
+        return listChar;
+    }
+
+
+    public static char[] trouverVoisin(int posI, int posJ, char[][] liste) {
+        char[]  voisins = new char[8];
+
+        int[][] directions = {{-1, 0}, {-1, -1}, {0, -1}, {1, -1}, {1, 0}, {1, 1}, {0, 1}, {-1, 1}};
+
+        for (int pos = 0; pos < directions.length; pos++) {
+            int i = posI + directions[pos][0];
+            int j = posJ + directions[pos][1];
+
+            if (i >= 1 && i <= liste.length && j >= 1 && j <= liste[0].length) {
+                voisins[pos] = liste[i][j];
+            } else {
+                voisins[pos] = ' ';
+            }
+        }
+        return voisins;
+    }
+
+    public void nextLetter(char[][] liste, Arbre arbre){
+
+    }
 
 
 }
