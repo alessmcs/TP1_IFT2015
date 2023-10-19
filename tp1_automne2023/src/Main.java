@@ -7,7 +7,7 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
 
-        String path = "/Users/oceane/Desktop/TP1_IFT2015/tp1_automne2023/TP1Input.txt";
+        String path = "/Users/oceane/Desktop/TP1_IFT2015/tp1_automne2023/src/TP1Input";
 
         Grille grille = Command.readFile(path);
         System.out.println(grille.getColonne());
@@ -15,6 +15,10 @@ public class Main {
         char[][] liste = Command.listLettre(grille);
 
         System.out.println(Command.trouverVoisin(2,2, liste));
+
+        char a = Command.lettreGrille(liste)[0].getCaractere();
+
+        System.out.println(a);
 
         System.out.println(Arrays.deepToString(liste));
 
