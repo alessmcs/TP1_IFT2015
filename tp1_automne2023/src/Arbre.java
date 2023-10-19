@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Arbre {
 
-    
+
     private String[] listeMots;
     private String[][] listeMots2d;
 
