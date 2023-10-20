@@ -15,6 +15,11 @@ public class Grille {
 
     }
 
+    public String[][] getGrille() {
+        return lignesGrille;
+    }
+
+
     public int getColonne() {
         return colonne;
     }
@@ -33,10 +38,6 @@ public class Grille {
 
     public void setGrille(String[][] grille) {
         this.lignesGrille = grille;
-    }
-
-    public String[][] getGrille() {
-        return lignesGrille;
     }
 
 

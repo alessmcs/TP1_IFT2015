@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.util.ArrayList;
 
 public class Command {
 
@@ -87,9 +88,23 @@ public class Command {
         return voisins;
     }
 
-    public void nextLetter(char[][] liste, Arbre arbre){
+    public static Lettre[] lettreGrille(char[][] liste){
+        ArrayList<Lettre> listeLettre = new ArrayList<>();
 
+        for(int i = 0; i < liste.length;i++){
+            for(int j = 0; j < liste[i].length; j++) {
+                Lettre uneLettre = new Lettre(liste[i][j],i,j);
+                listeLettre.add(uneLettre);
+            }
+        }
+        Lettre[] resultat = listeLettre.toArray(new Lettre[0]);
+
+        return resultat;
     }
 
+
+    public void parcourir(char[][] liste, Arbre arbre){
+
+    }
 
 }
