@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 import java.util.*;
 
 public class Arbre {
@@ -180,7 +179,3 @@ public class Arbre {
         return result;
     }
 }
-
-
-
->>>>>>> main
